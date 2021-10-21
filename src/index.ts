@@ -77,19 +77,27 @@ class Database {
   async clear() {
     this.model.remove();
   }
-  async keys() {
+  /**
+   * 
+   * @returns {Promise<string[]>} キーの配列が返ってきます。 
+   */
+  async keys(): Promise<string[]> {
     const data = await this.model.find();
     const filteredData = data.map(v => v.key);
     return filteredData;
   }
-  async values() {
+  /**
+   * 
+   * @returns {Promise<any[]>} 値の配列が返ってきます。 
+   */
+  async values(): Promise<any[]> {
     const data = await this.model.find();
-    const filteredData = data.map(v => v.value);
+    const filteredData = data.map(v => JSONB.parse(v.value));
     return filteredData;
   }
   async entries() {
     const data = await this.model.find();
-    const filteredData = data.map(v => { return [v.key, v.value] });
+    const filteredData = data.map(v => { return [v.key, JSONB.parse(v.value)] });
     return filteredData;
   }
   
