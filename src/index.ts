@@ -62,7 +62,8 @@ class Database {
     const data = await this.dget(key) || new this.model();
     data.key = key;
     data.value = JSONB.stringify(value);
-    data.save();
+    await data.save();
+    return null;
   }
   async has(key:string) {
     const data = await this.dget(key);
@@ -72,10 +73,12 @@ class Database {
   async delete(key:string) {
     const data = await this.dget(key);
     if (!data) return null;
-    return data.remove();
+    await data.remove();
+    return;
   }
   async clear() {
-    this.model.remove();
+    await this.model.remove();
+    return;
   }
   /**
    * 
