@@ -1,6 +1,6 @@
 
 
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 import JSONB from "json-bigint";
 import { Document, Schema, Types, SchemaDefinition, Model, model } from "mongoose"
 /**
