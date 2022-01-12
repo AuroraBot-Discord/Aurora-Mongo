@@ -6,7 +6,7 @@ on:
 jobs:
   dependabot:
     runs-on: ubuntu-latesteven
-    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' && github.event.review.state == 'approved' }}
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     steps:
       - name: Order Dependabot to merge
         run: gh pr comment --body "@dependabot merge" "$PR_URL"
