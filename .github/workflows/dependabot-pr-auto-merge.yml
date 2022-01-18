@@ -3,7 +3,7 @@ on: ["pull_request"]
 
 jobs:
   dependabot:
-    runs-on: ubuntu-latesteven
+    runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     steps:
       - name: Order Dependabot to merge
