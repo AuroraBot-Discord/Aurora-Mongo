@@ -77,7 +77,7 @@ client.on('messageCreate', async message => {
 client.login(process.env.token);
 ```
 
-## new code
+### new code
 ```js
 const discord = require("discord.js");
 const client = new discord.Client({ intents: [discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES] })
@@ -107,3 +107,7 @@ client.login(process.env.token);
 
 });
 ```
+
+## LICENSE
+
+元: [mongo-glow](https://npmjs.com/mongo-glow)
